@@ -4,20 +4,28 @@ import java.util.Scanner;
 
 class Person
 {
-	private String firstName;
-	private String lastName;
-	int Id;
-	int phoneNumber;
+	String firstName;
+	String lastName;
+	int id;
+	long phoneNumber;
 	Address completeAddress;
 	Scanner takeInput = new Scanner(System.in);
+	public Person(int id, String firstName, String lastName, long phoneNumber, String completeAddress )
+	{
+		this.id=id;
+		this.firstName=firstName;
+		this.lastName=lastName;
+		this.phoneNumber=phoneNumber;
+		String[] tokens = completeAddress.split("\n");
+		this.completeAddress=new Address(tokens[0], tokens[1],tokens[2],Integer.parseInt(tokens[3]));
+	}
 	public Person()
 	{
 		this.setFirstName();
 		this.setLastName();
 		this.setId();
 		this.setPhoneNumber();
-		this.setCompleteAddress();
-		
+		this.setCompleteAddress();	
 	}
 	
 	public void setFirstName()
@@ -40,19 +48,19 @@ class Person
 	}
 	public void setId()
 	{
-		System.out.println("Enter Id :");
-		Id=takeInput.nextInt();
+		System.out.println("Enter 5-digit Unique Id :");
+		id=takeInput.nextInt();
 	}
 	public int getId()
 	{
-		return Id;
+		return id;
 	}
 	public void setPhoneNumber()
 	{
 		System.out.println("Enter Phone Number :");
-		phoneNumber=takeInput.nextInt();
+		phoneNumber=takeInput.nextLong();
 	}
-	public int getPhoneNumber()
+	public long getPhoneNumber()
 	{
 		return phoneNumber;
 	}
@@ -64,4 +72,11 @@ class Person
 	{
 		return completeAddress;
 	}
+
+	@Override
+	public String toString() {
+		return "firstName=" + firstName + ", lastName=" + lastName + ", Id=" + id + ", phoneNumber="
+				+ phoneNumber + ", completeAddress=" + completeAddress ;
+	}
+	
 }
