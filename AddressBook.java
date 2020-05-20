@@ -10,13 +10,14 @@ interface IAddressBook
 	public void sortAddressBookByZip();
 	public void sortAddressBookByLastName();
 	public void printAddressBook();
+	public void addressBookMenu();
 }
 class AddressBook implements IAddressBook
 {
-	private ArrayList<Person> addressBook;
+	ArrayList<Person> addressBook;
 	Scanner takeInput=new Scanner(System.in);
 	public void addPerson()
-	{
+	{	
 		Person currentPerson=new Person();
 		addressBook.add(currentPerson);
 	}
@@ -120,5 +121,51 @@ class AddressBook implements IAddressBook
 		{
 			System.out.println(addressBook.get(i));
 		}
+	}
+	@Override
+	public void addressBookMenu() 
+	{
+		System.out.println("Enter 1 to add person\n"
+						 + "Enter 2 to delete person\n"
+						 + "Enter 3 to sort Address Book\n"
+						 + "Enter 4 to Print Address Book\n"
+						 + "Enter any other number to go to previous menu\n");
+		int choice=takeInput.nextInt();
+		switch(choice)
+		{
+			case 1:
+				this.addPerson();
+			break;
+			case 2:
+				this.deletePerson();
+			break;
+			case 3:
+				boolean sortloop=true;
+				while(sortloop==true)
+				{	
+					System.out.println("Enter 1 to Sort by ZipCode\n"
+									  +"Enter 2 to Sort by Last Name\n");
+					int sortChoice=takeInput.nextInt();
+					switch(sortChoice)
+					{
+						case 1:
+							this.sortAddressBookByZip();
+							sortloop=false;
+						break;
+						case 2:
+							this.sortAddressBookByLastName();
+							sortloop=false;
+						break;
+						default :
+							System.out.println("INVALID INPUT");
+					}
+				}
+			break;
+			case 4:
+				this.printAddressBook();
+			break;
+			default :
+				break;
+		}	
 	}
 }
