@@ -1,7 +1,6 @@
 package com.addressbook;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 import java.io.File;
 import java.io.FileWriter;
@@ -217,9 +216,7 @@ class AddressBookManager implements IAddressBookManager
 			fileWriter = new FileWriter(fileName+".csv");
 			fileWriter.append(CSV_HEADER);
 			fileWriter.append('\n');
-	 		AddressBook ABobj= new AddressBook();
-
-	 		for (Person person : ABobj.addressBook)
+	 		for (Person person : addressBookObject.addressBook)
 	 		{
 	 			fileWriter.append(String.valueOf(person.getId()));
 	 			fileWriter.append(',');
@@ -242,20 +239,40 @@ class AddressBookManager implements IAddressBookManager
 	}
 	public void deleteAddressBook()
 	{
-		System.out.print("\n\t\t Enter name of AddressBook to delete :");
+		String[] fileNames;
+		File fileObj=new File("F:\\Eclipse programs\\CodinClub");
+		FilenameFilter filter = new FilenameFilter() {
+	        @Override
+	        public boolean accept(File f, String name) {
+	            return name.endsWith(".csv");
+	        }
+	    };
+		fileNames=fileObj.list(filter);
+		int fileCount=0;
+		for(String file : fileNames)
+		{
+			System.out.print("\n\t\t   "+file);
+			fileCount++;
+		}
+		if(fileCount>0)
+		{	
+		System.out.print("\n\t\t   Enter name of AddressBook to delete :");
 		fileName=takeInput.next();
 		try
 		{
 			File addressBookDelete = new File(fileName+".csv");
 			if(addressBookDelete.delete())
-	      System.out.print("\n\t\tDeleted the file: " + addressBookDelete.getName());
+	      System.out.print("\n\t\t   Deleted the file: " + addressBookDelete.getName());
 	    }catch(Exception e)
 		 {
-	    	System.out.print("\n\t\tFailed to delete the file with error");
+	    	System.out.print("\n\t\t   Failed to delete the file with error");
 	    	e.printStackTrace();
 	    }
 		this.AddressBooksManagermenu();	
 	}
+		else
+			System.out.print("\n\t\t   NO FILE TO DELETE");
+	}	
 	public void quit() {
 		System.exit(0);
 		
