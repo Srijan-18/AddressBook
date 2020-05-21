@@ -86,7 +86,6 @@ class AddressBookManager implements IAddressBookManager
 			e.printStackTrace();
 		}
 }
-
 	public void openAddressBook() {
 		String[] fileNames;
 		File fileObj=new File("F:\\Eclipse programs\\CodinClub");
@@ -171,7 +170,6 @@ class AddressBookManager implements IAddressBookManager
 	public void closeAdrressBook() {
 		this.saveAddressBook();
 		}
-
 	@Override
 	public void saveAddressBook() 
 	{
@@ -203,7 +201,6 @@ class AddressBookManager implements IAddressBookManager
 			}
 		 this.AddressBooksManagermenu();	 
 	}
-
 	@Override
 	public void saveAs() 
 	{

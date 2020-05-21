@@ -23,7 +23,6 @@ class Address
 		this.setState();
 		this.setZipcode();
 	}
-
 	public void setAddress()
 	{
 		System.out.print("\n\t\t   Enter House Number and Street :");
@@ -60,7 +59,7 @@ class Address
 	{
 		return zipcode;
 	}
-public String savereturn()
+	public String savereturn()
 {
 	return address +":"+city +":"+ state +":"+ zipcode; 
 }

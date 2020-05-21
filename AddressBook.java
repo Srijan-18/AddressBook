@@ -28,8 +28,8 @@ class AddressBook implements IAddressBook
 		int searchId=takeInput.nextInt();
 		for(int i=0;i<addressBook.size();i++)
 		{	
-			Person currentPerson=addressBook.get(i);
-			if(currentPerson.getId() == searchId)
+			
+			if(addressBook.get(i).getId() == searchId)
 			{
 				System.out.print("\n\t\t   1 --> edit PhoneNumber\n"
 					          +"\t\t   2 --> edit Street Address\n"
@@ -40,19 +40,19 @@ class AddressBook implements IAddressBook
 				switch (choice)
 				{
 					case 1:
-						currentPerson.setPhoneNumber();
+						addressBook.get(i).setPhoneNumber();
 					break;
 					case 2:
-						currentPerson.completeAddress.setAddress();
+						addressBook.get(i).completeAddress.setAddress();
 					break;
 					case 3:
-						currentPerson.completeAddress.setCity();
+						addressBook.get(i).completeAddress.setCity();
 					break;
 					case 4:
-						currentPerson.completeAddress.setState();
+						addressBook.get(i).completeAddress.setState();
 					break;
 					case 5:
-						currentPerson.completeAddress.setZipcode();
+						addressBook.get(i).completeAddress.setZipcode();
 					break;
 					default:
 						System.out.print("\n\t\t   INVALID INPUT");
@@ -60,7 +60,6 @@ class AddressBook implements IAddressBook
 			}
 		}
 	}
-
 	public void deletePerson() 
 	{	
 		if(addressBook.size()>0)
@@ -78,7 +77,6 @@ class AddressBook implements IAddressBook
 		else
 			System.out.print("\n\t\t   NO ENTRY TO DELETE");
 	}
-
 	public void sortAddressBookByZip() 
 	{
 		for (int i=0;i<addressBook.size();i++)
@@ -138,10 +136,11 @@ class AddressBook implements IAddressBook
 		boolean menuloop=true;
 		while (menuloop==true)
 		{
-			System.out.print( "\n\t\t   1 --> add person"
-						 	+ "\n\t\t   2 --> delete person"
-						 	+ "\n\t\t   3 --> sort Address Book"
-						 	+ "\n\t\t   4 ---> Print Address Book"
+			System.out.print( "\n\t\t   1 --> Add an entry"
+							+ "\n\t\t   2 --> Edit an entry"
+						 	+ "\n\t\t   3 --> Delete an entry"
+						 	+ "\n\t\t   4 --> Sort Address Book"
+						 	+ "\n\t\t   5 --> Print Address Book"
 							+ "\n\t\t   Any other number to go to previous menu\n");
 			System.out.print("\n\t\t   ENTER YOUR CHOICE :");
 			int choice=takeInput.nextInt();
@@ -151,9 +150,12 @@ class AddressBook implements IAddressBook
 					this.addPerson();
 				break;
 				case 2:
-					this.deletePerson();
+					this.editPerson();
 				break;
 				case 3:
+					this.deletePerson();
+				break;
+				case 4:
 					boolean sortloop=true;
 					while(sortloop==true)
 					{	
@@ -176,7 +178,7 @@ class AddressBook implements IAddressBook
 						}
 					}
 				break;
-				case 4:
+				case 5:
 					this.printAddressBook();
 				break;
 				default :
