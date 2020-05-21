@@ -26,8 +26,8 @@ class Address
 
 	public void setAddress()
 	{
-		System.out.println("Enter House Number and Street :");
-		address=takeInput.next();
+		System.out.print("\n\t\t   Enter House Number and Street :");
+		address=takeInput.nextLine();
 	}
 	public String getAddress()
 	{
@@ -35,8 +35,8 @@ class Address
 	}
 	public void setCity()
 	{
-		System.out.println("Enter City :");
-		city=takeInput.next();
+		System.out.print("\n\t\t   Enter City :");
+		city=takeInput.nextLine();
 	}
 	public String getCity()
 	{
@@ -44,8 +44,8 @@ class Address
 	}
 	public void setState()
 	{
-		System.out.println("Enter State :");
-		state=takeInput.next();
+		System.out.print("\n\t\t   Enter State :");
+		state=takeInput.nextLine();
 	}
 	public String getState()
 	{
@@ -53,7 +53,7 @@ class Address
 	}
 	public void setZipcode()
 	{
-		System.out.println("Enter Zipcode :");
+		System.out.print("\n\t\t   Enter Zipcode :");
 		zipcode=takeInput.nextInt();
 	}
 	public int getZipcode()
@@ -62,11 +62,11 @@ class Address
 	}
 public String savereturn()
 {
-	return address +"\n"+ "\n"+city +"\n"+ state +"\n"+ zipcode; 
+	return address +":"+city +":"+ state +":"+ zipcode; 
 }
 	@Override
 	public String toString() {
-		return "Street=" + address + ", city=" + city + ", state=" + state + ", zipcode=" + zipcode +".";
+		return "\"H.No. & Street: "+ address + "\tCity: " + city + "\tState: " + state + "\tZipcode: " + zipcode +"\"";
 	}
 	
 }
