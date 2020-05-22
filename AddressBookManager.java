@@ -63,6 +63,16 @@ class AddressBookManager implements IAddressBookManager
 					numberOfAddBook--;
 				break;
 				case 7:
+					System.out.print("\n\t\t   1 --> Save and Quit"
+									+"\n\t\t   Any Other number to Quit without saving"
+									+"\n\t\t   ENTER YOUR CHOICE : ");
+					int quitChoice=takeInput.nextInt();
+					if(quitChoice==1)
+					{
+						this.saveAddressBook();
+						this.quit();
+					}
+					else
 					this.quit();
 				break;
 				default:
@@ -73,7 +83,7 @@ class AddressBookManager implements IAddressBookManager
 	public void newAddressBook() 
 	{	
 		
-		System.out.print("\t\tEnter the name of AddressBook to create :");
+		System.out.print("\t\t   Enter the name of AddressBook to create :");
 		fileName=takeInput.next();
 		try
 		{
@@ -82,7 +92,7 @@ class AddressBookManager implements IAddressBookManager
 		     addressBookObject.addressBookMenu();
 		}catch (Exception e)
 		{
-			System.out.print("\n\t\t Error in Creating AdrressBook :");
+			System.out.print("\n\t\t   Error in Creating AdrressBook :");
 			e.printStackTrace();
 		}
 }
@@ -157,13 +167,13 @@ class AddressBookManager implements IAddressBookManager
 			        fileReader.close();
 				} catch (IOException e) 
 			      {
-						System.out.print("\n\t\tClosing fileReader Error!");
+						System.out.print("\n\t\t   Closing fileReader Error!");
 				    	e.printStackTrace();
 				  }
 		}
 		else
 		{
-			System.out.print("\n\t\t NO ADDRESS BOOK PRESENT");
+			System.out.print("\n\t\t   NO ADDRESS BOOK PRESENT");
 			this.AddressBooksManagermenu();
 		}
 	}

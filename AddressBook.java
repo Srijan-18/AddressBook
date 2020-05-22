@@ -18,7 +18,7 @@ class AddressBook implements IAddressBook
 	Scanner takeInput=new Scanner(System.in);
 	public void addPerson()
 	{	
-		System.out.print("\n\t\t   Details of Individuals");
+		System.out.print("\n\t\t   Details of Individuals\n");
 		Person currentPerson=new Person();
 		addressBook.add(currentPerson);
 	}
@@ -36,6 +36,7 @@ class AddressBook implements IAddressBook
 					          +"\t\t   3 --> edit City\n"
 					          +"\t\t   4 --> edit State\n"
 					          +"\t\t   5 --> edit zip code\n");
+				System.out.println("\n\t\t   ENTER YOUR CHOICE: ");
 				int choice=takeInput.nextInt();
 				switch (choice)
 				{
