@@ -22,14 +22,18 @@ class Person
 	}
 	public Person()
 	{	
-		System.out.print("\n\t\t   Enter First Name :");
-		this.setFirstName(takeInput.nextLine());
-		System.out.print("\n\t\t   Enter Last Name :");
-		this.setLastName(takeInput.nextLine());
-		System.out.print("\n\t\t   Enter ID Number :");
-		this.setId(takeInput.nextInt());
-		System.out.print("\n\t\t   Enter Phone Number :");
-		this.setPhoneNumber(takeInput.nextLong());
+		System.out.print("\n\t\t    Enter First Name :");
+		String firstName=takeInput.nextLine();
+		this.setFirstName(firstName);
+		System.out.print("\n\t\t    Enter Last Name :");
+		String lastName=takeInput.nextLine();
+		this.setLastName(lastName);
+		System.out.print("\n\t\t    Enter ID Number :");
+		int id=Integer.parseInt(takeInput.next());
+		this.setId(id);
+		System.out.print("\n\t\t    Enter Phone Number :");
+		long phoneNumber=Long.parseLong(takeInput.next());
+		this.setPhoneNumber(phoneNumber);
 		this.setCompleteAddress();	
 	}	
 	public void setFirstName(String firstName)

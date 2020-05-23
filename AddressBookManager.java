@@ -38,35 +38,41 @@ class AddressBookManager implements IAddressBookManager
 							   + "\t\t    6 --> delete AddressBook                     \n"
 							   + "\t\t    7 --> Quit                                   \n");
 			System.out.print("\n\t\t    ENTER YOUR CHOICE :");				   
-			int userChoice=takeInput.nextInt();
+			int userChoice=Integer.parseInt(takeInput.next());
 			switch (userChoice)
 			{
 				case 1:
 					this.newAddressBook();
 					numberOfAddBook++;
 					this.saveAddressBook();
+					 this.AddressBooksManagermenu();	
 				break;	
 				case 2:
 					this.openAddressBook();
+					 this.AddressBooksManagermenu();	
 				break;
 				case 3:
 					this.closeAdrressBook();
+					 this.AddressBooksManagermenu();	
 				break;
 				case 4:
 					this.saveAddressBook();
+					 this.AddressBooksManagermenu();	
 				break;
 				case 5:
 					this.saveAs();
+					 this.AddressBooksManagermenu();	
 				break;	
 				case 6:
 					this.deleteAddressBook();
+					 this.AddressBooksManagermenu();	
 					numberOfAddBook--;
 				break;
 				case 7:
-					System.out.print("\n\t\t   1 --> Save and Quit"
-									+"\n\t\t   Any Other number to Quit without saving"
-									+"\n\t\t   ENTER YOUR CHOICE : ");
-					int quitChoice=takeInput.nextInt();
+					System.out.print("\n\t\t    1 --> Save and Quit"
+									+"\n\t\t    Any Other number to Quit without saving"
+									+"\n\t\t    ENTER YOUR CHOICE : ");
+					int quitChoice=Integer.parseInt(takeInput.next());
 					if(quitChoice==1)
 					{
 						this.saveAddressBook();
@@ -83,7 +89,7 @@ class AddressBookManager implements IAddressBookManager
 	public void newAddressBook() 
 	{	
 		
-		System.out.print("\t\t   Enter the name of AddressBook to create :");
+		System.out.print("\t\t    Enter the name of AddressBook to create :");
 		fileName=takeInput.next();
 		try
 		{
@@ -92,7 +98,7 @@ class AddressBookManager implements IAddressBookManager
 		     addressBookObject.addressBookMenu();
 		}catch (Exception e)
 		{
-			System.out.print("\n\t\t   Error in Creating AdrressBook :");
+			System.out.print("\n\t\t    Error in Creating AdrressBook :");
 			e.printStackTrace();
 		}
 }
@@ -107,15 +113,20 @@ class AddressBookManager implements IAddressBookManager
 	        }
 	    };
 		fileNames=fileObj.list(filter);
-		int fileCount=0;
+		int fileCount=-1;
 		for(String file : fileNames)
 		{
-			System.out.print("\n\t\t   "+file);
+			if(fileCount==-1)
+			{
+				System.out.println("\n\t\t    AVAILABLE FILES ARE :");
+				fileCount++;
+			}
+			System.out.print("\n\t\t    "+file);
 			fileCount++;
 		}
 		if(fileCount>0)
 		{	
-			System.out.print("\n\n\t\t   Enter Addressbook name to open :");
+			System.out.print("\n\n\t\t    Enter Addressbook name to open :");
 			fileName=takeInput.next();
 			BufferedReader fileReader=null;
 			ArrayList<Person> addressBookObj = new ArrayList<Person>();
@@ -151,7 +162,7 @@ class AddressBookManager implements IAddressBookManager
 				    
 			}catch (Exception e)
 			{
-				System.out.print("\n\t\t  Error in Opening Addressbook");
+				System.out.print("\n\t\t    Error in Opening Addressbook");
 				e.printStackTrace();
 				System.out.println("\n\n");
 				try
@@ -160,7 +171,7 @@ class AddressBookManager implements IAddressBookManager
 				}catch (Exception e1)
 				{
 				}
-				this.AddressBooksManagermenu();
+				
 			} 
 			
 				try 
@@ -168,14 +179,14 @@ class AddressBookManager implements IAddressBookManager
 			        fileReader.close();
 				} catch (IOException e) 
 			      {
-						System.out.print("\n\t\t   Closing fileReader Error!");
+						System.out.print("\n\t\t    Closing fileReader Error!");
 				    	e.printStackTrace();
 				  }
 		}
 		else
 		{
-			System.out.print("\n\t\t   NO ADDRESS BOOK PRESENT");
-			this.AddressBooksManagermenu();
+			System.out.print("\n\t\t    NO ADDRESS BOOK PRESENT");
+			
 		}
 	}
 	public void closeAdrressBook() 
@@ -211,12 +222,12 @@ class AddressBookManager implements IAddressBookManager
 			{
 			e.printStackTrace();
 			}
-		 this.AddressBooksManagermenu();	 
+		 
 	}
 	@Override
 	public void saveAs() 
 	{
-		System.out.print("\n\t\tEnter New name of AddressBook to update :");
+		System.out.print("\n\t\t    Enter New name of AddressBook to update :");
 		fileName=takeInput.next();
 		final String CSV_HEADER = "ID,First Name, Last Name,PhoneNumber,Address";
 
@@ -241,10 +252,9 @@ class AddressBookManager implements IAddressBookManager
 	 		fileWriter.close();
 		}catch (Exception e)
 		{
-			System.out.print("\n\t\t Error in saving the entered AddressBook");
+			System.out.print("\n\t\t    Error in saving the entered AddressBook");
 			e.printStackTrace();
 		}
-		this.AddressBooksManagermenu();
 	}
 	public void deleteAddressBook()
 	{
@@ -257,30 +267,34 @@ class AddressBookManager implements IAddressBookManager
 	        }
 	    };
 		fileNames=fileObj.list(filter);
-		int fileCount=0;
+		int fileCount=-1;
 		for(String file : fileNames)
 		{
-			System.out.print("\n\t\t   "+file);
+			if(fileCount==-1)
+			{
+				System.out.println("\n\t\t    AVAILABLE FILES ARE :");
+				fileCount++;
+			}
+			System.out.print("\n\t\t    "+file);
 			fileCount++;
 		}
 		if(fileCount>0)
 		{	
-		System.out.print("\n\t\t   Enter name of AddressBook to delete :");
-		fileName=takeInput.next();
-		try
-		{
-			File addressBookDelete = new File(fileName+".csv");
-			if(addressBookDelete.delete())
-	      System.out.print("\n\t\t   Deleted the file: " + addressBookDelete.getName());
-	    }catch(Exception e)
-		 {
-	    	System.out.print("\n\t\t   Failed to delete the file with error");
-	    	e.printStackTrace();
-	    }
-		this.AddressBooksManagermenu();	
-	}
+			System.out.print("\n\t\t    Enter name of AddressBook to delete :");
+			fileName=takeInput.next();
+			try
+			{
+				File addressBookDelete = new File(fileName+".csv");
+				if(addressBookDelete.delete())
+				System.out.print("\n\t\t    Deleted the file :" + addressBookDelete.getName());
+			}catch(Exception e)
+			{
+				System.out.print("\n\t\t    Failed to delete the file with error");
+				e.printStackTrace();
+			}	
+		}
 		else
-			System.out.print("\n\t\t   NO FILE TO DELETE");
+			System.out.print("\n\t\t    NO FILE TO DELETE");
 	}	
 	public void quit()
 	{

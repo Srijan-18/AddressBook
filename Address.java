@@ -18,14 +18,18 @@ class Address
 	}
 	public Address()
 	{
-		System.out.print("\n\t\t   Enter H.No. and Area : ");
-		this.setAddress(takeInput.nextLine());
-		System.out.print("\n\t\t   Enter City : ");
-		this.setCity(takeInput.nextLine());
-		System.out.print("\n\t\t   Enter State : ");
-		this.setState(takeInput.nextLine());
-		System.out.print("\n\t\t   Enter Zipcode : ");
-		this.setZipcode(takeInput.nextInt());
+		System.out.print("\n\t\t    Enter H.No. and Area :");
+		String address=takeInput.nextLine();
+		this.setAddress(address);
+		System.out.print("\n\t\t    Enter City :");
+		String city=takeInput.nextLine();
+		this.setCity(city);
+		System.out.print("\n\t\t    Enter State :");
+		String state=takeInput.nextLine();
+		this.setState(state);
+		System.out.print("\n\t\t    Enter Zipcode : ");
+		int zipcode=Integer.parseInt(takeInput.next());
+		this.setZipcode(zipcode);
 	}
 	public void setAddress(String address)
 	{
