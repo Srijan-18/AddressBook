@@ -18,42 +18,42 @@ class Address
 	}
 	public Address()
 	{
-		this.setAddress();
-		this.setCity();
-		this.setState();
-		this.setZipcode();
+		System.out.print("\n\t\t   Enter H.No. and Area : ");
+		this.setAddress(takeInput.nextLine());
+		System.out.print("\n\t\t   Enter City : ");
+		this.setCity(takeInput.nextLine());
+		System.out.print("\n\t\t   Enter State : ");
+		this.setState(takeInput.nextLine());
+		System.out.print("\n\t\t   Enter Zipcode : ");
+		this.setZipcode(takeInput.nextInt());
 	}
-	public void setAddress()
+	public void setAddress(String address)
 	{
-		System.out.print("\n\t\t   Enter House Number and Street :");
-		address=takeInput.nextLine();
+		this.address=address;
 	}
 	public String getAddress()
 	{
 		return address;
 	}
-	public void setCity()
+	public void setCity(String city)
 	{
-		System.out.print("\n\t\t   Enter City :");
-		city=takeInput.nextLine();
+		this.city=city;
 	}
 	public String getCity()
 	{
 		return city;
 	}
-	public void setState()
+	public void setState(String state)
 	{
-		System.out.print("\n\t\t   Enter State :");
-		state=takeInput.nextLine();
+		this.state=state;
 	}
 	public String getState()
 	{
 		return state;
 	}
-	public void setZipcode()
+	public void setZipcode(int zipcode)
 	{
-		System.out.print("\n\t\t   Enter Zipcode :");
-		zipcode=takeInput.nextInt();
+		this.zipcode=zipcode;
 	}
 	public int getZipcode()
 	{

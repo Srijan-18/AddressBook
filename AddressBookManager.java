@@ -96,7 +96,8 @@ class AddressBookManager implements IAddressBookManager
 			e.printStackTrace();
 		}
 }
-	public void openAddressBook() {
+	public void openAddressBook()
+ {
 		String[] fileNames;
 		File fileObj=new File("F:\\Eclipse programs\\CodinClub");
 		FilenameFilter filter = new FilenameFilter() {
@@ -177,7 +178,8 @@ class AddressBookManager implements IAddressBookManager
 			this.AddressBooksManagermenu();
 		}
 	}
-	public void closeAdrressBook() {
+	public void closeAdrressBook() 
+{
 		this.saveAddressBook();
 		}
 	@Override
@@ -280,7 +282,8 @@ class AddressBookManager implements IAddressBookManager
 		else
 			System.out.print("\n\t\t   NO FILE TO DELETE");
 	}	
-	public void quit() {
+	public void quit()
+	{
 		System.exit(0);
 		
 	}

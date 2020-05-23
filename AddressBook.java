@@ -41,19 +41,24 @@ class AddressBook implements IAddressBook
 				switch (choice)
 				{
 					case 1:
-						addressBook.get(i).setPhoneNumber();
+						System.out.print("\n\t\t   Enter Phone Number :");
+						addressBook.get(i).setPhoneNumber(takeInput.nextLong());
 					break;
 					case 2:
-						addressBook.get(i).completeAddress.setAddress();
+						System.out.print("\n\t\t   Enter H.No. and Area : ");
+						addressBook.get(i).completeAddress.setAddress(takeInput.nextLine());
 					break;
 					case 3:
-						addressBook.get(i).completeAddress.setCity();
+						System.out.print("\n\t\t   Enter City : ");
+						addressBook.get(i).completeAddress.setCity(takeInput.nextLine());
 					break;
 					case 4:
-						addressBook.get(i).completeAddress.setState();
+						System.out.print("\n\t\t   Enter State : ");
+						addressBook.get(i).completeAddress.setState(takeInput.nextLine());
 					break;
 					case 5:
-						addressBook.get(i).completeAddress.setZipcode();
+						System.out.print("\n\t\t   Enter Zipcode : ");
+						addressBook.get(i).completeAddress.setZipcode(takeInput.nextInt());
 					break;
 					default:
 						System.out.print("\n\t\t   INVALID INPUT");
@@ -137,7 +142,7 @@ class AddressBook implements IAddressBook
 		boolean menuloop=true;
 		while (menuloop==true)
 		{
-			System.out.print( "\n\t\t   1 --> Add an entry"
+			System.out.print( "\n\n\t\t   1 --> Add an entry"
 							+ "\n\t\t   2 --> Edit an entry"
 						 	+ "\n\t\t   3 --> Delete an entry"
 						 	+ "\n\t\t   4 --> Sort Address Book"

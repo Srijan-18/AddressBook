@@ -21,45 +21,44 @@ class Person
 		this.completeAddress=new Address(token[0], token[1],token[2],Integer.parseInt(token[3]));
 	}
 	public Person()
-	{
-		this.setFirstName();
-		this.setLastName();
-		this.setId();
-		this.setPhoneNumber();
+	{	
+		System.out.print("\n\t\t   Enter First Name :");
+		this.setFirstName(takeInput.nextLine());
+		System.out.print("\n\t\t   Enter Last Name :");
+		this.setLastName(takeInput.nextLine());
+		System.out.print("\n\t\t   Enter ID Number :");
+		this.setId(takeInput.nextInt());
+		System.out.print("\n\t\t   Enter Phone Number :");
+		this.setPhoneNumber(takeInput.nextLong());
 		this.setCompleteAddress();	
 	}	
-	public void setFirstName()
+	public void setFirstName(String firstName)
 	{
-
-		System.out.print("\n\t\t   Enter First Name :");
-		firstName=takeInput.nextLine();
+		this.firstName=firstName;
 	}
 	public String getFirstName()
 	{
 		return firstName;
 	}
-	public void setLastName()
+	public void setLastName(String lastName)
 	{
-		System.out.print("\n\t\t   Enter Last Name :");
-		lastName=takeInput.nextLine();
+		this.lastName=lastName;
 	}
 	public String getLastName()
 	{
 		return lastName;
 	}
-	public void setId()
+	public void setId(int id)
 	{
-		System.out.print("\n\t\t   Enter ID Number :");
-		id=takeInput.nextInt();
+		this.id=id;
 	}
 	public int getId()
 	{
 		return id;
 	}
-	public void setPhoneNumber()
+	public void setPhoneNumber(long phoneNumber)
 	{
-		System.out.print("\n\t\t   Enter Phone Number :");
-		phoneNumber=takeInput.nextLong();
+		this.phoneNumber=phoneNumber;
 	}
 	public long getPhoneNumber()
 	{
