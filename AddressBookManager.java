@@ -1,5 +1,4 @@
 package com.addressbook;
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.io.File;
@@ -30,15 +29,15 @@ class AddressBookManager implements IAddressBookManager
 		boolean abmMenuloop=true;
 		while(abmMenuloop==true)
 		{
-			   System.out.print( "\n\n\t\t    1 --> add new AddressBook                    \n"
-							   + "\t\t    2 --> open an existing AddressBook           \n"
-							   + "\t\t    3 --> close current AddressBook              \n"
-							   + "\t\t    4 --> save current AdressBook                \n"
-							   + "\t\t    5 --> save Address Book with different name  \n"
-							   + "\t\t    6 --> delete AddressBook                     \n"
+			   System.out.print( "\n\n\t\t    1 --> Add new AddressBook                    \n"
+							   + "\t\t    2 --> Open an existing AddressBook           \n"
+							   + "\t\t    3 --> Close current AddressBook              \n"
+							   + "\t\t    4 --> Save current AdressBook                \n"
+							   + "\t\t    5 --> Save Address Book with different name  \n"
+							   + "\t\t    6 --> Delete AddressBook                     \n"
 							   + "\t\t    7 --> Quit                                   \n");
 			System.out.print("\n\t\t    ENTER YOUR CHOICE :");				   
-			int userChoice=Integer.parseInt(takeInput.next());
+			int userChoice=Integer.parseInt(takeInput.nextLine());
 			switch (userChoice)
 			{
 				case 1:
@@ -72,7 +71,7 @@ class AddressBookManager implements IAddressBookManager
 					System.out.print("\n\t\t    1 --> Save and Quit"
 									+"\n\t\t    Any Other number to Quit without saving"
 									+"\n\t\t    ENTER YOUR CHOICE : ");
-					int quitChoice=Integer.parseInt(takeInput.next());
+					int quitChoice=Integer.parseInt(takeInput.nextLine());
 					if(quitChoice==1)
 					{
 						this.saveAddressBook();
@@ -127,7 +126,7 @@ class AddressBookManager implements IAddressBookManager
 		if(fileCount>0)
 		{	
 			System.out.print("\n\n\t\t    Enter Addressbook name to open :");
-			fileName=takeInput.next();
+			fileName=takeInput.nextLine();
 			BufferedReader fileReader=null;
 			ArrayList<Person> addressBookObj = new ArrayList<Person>();
 			try {
@@ -228,7 +227,7 @@ class AddressBookManager implements IAddressBookManager
 	public void saveAs() 
 	{
 		System.out.print("\n\t\t    Enter New name of AddressBook to update :");
-		fileName=takeInput.next();
+		fileName=takeInput.nextLine();
 		final String CSV_HEADER = "ID,First Name, Last Name,PhoneNumber,Address";
 
 		try
@@ -281,7 +280,7 @@ class AddressBookManager implements IAddressBookManager
 		if(fileCount>0)
 		{	
 			System.out.print("\n\t\t    Enter name of AddressBook to delete :");
-			fileName=takeInput.next();
+			fileName=takeInput.nextLine();
 			try
 			{
 				File addressBookDelete = new File(fileName+".csv");

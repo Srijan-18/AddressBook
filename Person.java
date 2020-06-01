@@ -1,10 +1,7 @@
 package com.addressbook;
-
 import java.util.Scanner;
-
 class Person
 {
-
 	String firstName;
 	String lastName;
 	int id;
@@ -23,17 +20,13 @@ class Person
 	public Person()
 	{	
 		System.out.print("\n\t\t    Enter First Name :");
-		String firstName=takeInput.nextLine();
-		this.setFirstName(firstName);
+		this.setFirstName(takeInput.nextLine());
 		System.out.print("\n\t\t    Enter Last Name :");
-		String lastName=takeInput.nextLine();
-		this.setLastName(lastName);
+		this.setLastName(takeInput.nextLine());
 		System.out.print("\n\t\t    Enter ID Number :");
-		int id=Integer.parseInt(takeInput.next());
-		this.setId(id);
+		this.setId(Integer.parseInt(takeInput.nextLine()));
 		System.out.print("\n\t\t    Enter Phone Number :");
-		long phoneNumber=Long.parseLong(takeInput.next());
-		this.setPhoneNumber(phoneNumber);
+		this.setPhoneNumber(Long.parseLong(takeInput.nextLine()));
 		this.setCompleteAddress();	
 	}	
 	public void setFirstName(String firstName)

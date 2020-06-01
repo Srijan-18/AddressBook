@@ -25,7 +25,7 @@ class AddressBook implements IAddressBook
 	public void editPerson() 
 	{
 		System.out.print("\n\t\t   Enter the ID of entry to edit :");
-		int searchId=Integer.parseInt(takeInput.next());
+		int searchId=Integer.parseInt(takeInput.nextLine());
 		for(int i=0;i<addressBook.size();i++)
 		{	
 			
@@ -37,33 +37,28 @@ class AddressBook implements IAddressBook
 					          +"\t\t    4 --> edit State\n"
 					          +"\t\t    5 --> edit zip code\n");
 				System.out.print("\n\t\t    ENTER YOUR CHOICE :");
-				int choice=Integer.parseInt(takeInput.next());
+				int choice=Integer.parseInt(takeInput.nextLine());
 				switch (choice)
 				{
 					case 1:
 						System.out.print("\n\n\t\t    Enter new Phone Number :");
-						long newPhoneNumber=Long.parseLong(takeInput.next());
-						addressBook.get(i).setPhoneNumber(newPhoneNumber);
+						addressBook.get(i).setPhoneNumber(Long.parseLong(takeInput.nextLine()));
 					break;
 					case 2:
 						System.out.print("\n\n\t\t    Enter new H.No. and Area :");
-						String newAddress=takeInput.nextLine();
-						addressBook.get(i).completeAddress.setAddress(newAddress);
+						addressBook.get(i).completeAddress.setAddress(takeInput.nextLine());
 					break;
 					case 3:
 						System.out.print("\n\n\t\t    Enter new City :");
-						String newCity=takeInput.nextLine();
-						addressBook.get(i).completeAddress.setCity(newCity);
+						addressBook.get(i).completeAddress.setCity(takeInput.nextLine());
 					break;
 					case 4:
 						System.out.print("\n\n\t\t    Enter new State :");
-						String newState=takeInput.nextLine();
-						addressBook.get(i).completeAddress.setState(newState);
+						addressBook.get(i).completeAddress.setState(takeInput.nextLine());
 					break;
 					case 5:
 						System.out.print("\n\n\t\t    Enter new Zipcode :");
-						int newZipcode=Integer.parseInt(takeInput.next());
-						addressBook.get(i).completeAddress.setZipcode(newZipcode);
+						addressBook.get(i).completeAddress.setZipcode(Integer.parseInt(takeInput.nextLine()));
 					break;
 					default:
 						System.out.print("\n\n\t\t    INVALID INPUT");
@@ -76,7 +71,7 @@ class AddressBook implements IAddressBook
 		if(addressBook.size()>0)
 		{
 			System.out.print("\n\t\t    Enter the ID of entry to delete :");
-			int searchId=Integer.parseInt(takeInput.next());
+			int searchId=Integer.parseInt(takeInput.nextLine());
 			for(int i=0;i<addressBook.size();i++)
 			{	
 				if(addressBook.get(i).getId() == searchId)
@@ -101,9 +96,9 @@ class AddressBook implements IAddressBook
 				else if(addressBook.get(j-1).completeAddress.zipcode == addressBook.get(j).completeAddress.zipcode)
 				{
 					if(addressBook.get(j-1).firstName.compareTo(addressBook.get(j).firstName)>0)
-							{
+					{
 								Collections.swap(addressBook, j-1, j);
-							}
+					}
 				}
 			}
 		}
@@ -112,7 +107,7 @@ class AddressBook implements IAddressBook
 	{
 		for (int i=0;i<addressBook.size();i++)
 		{
-			for (int j=1;j<addressBook.size()-i;j++)
+			for (int j=1;j<addressBook.size()-i;j++) 
 			{
 				if(addressBook.get(j-1).lastName.compareToIgnoreCase((addressBook.get(j).lastName))>0)
 				{
@@ -154,7 +149,7 @@ class AddressBook implements IAddressBook
 						 	+ "\n\t\t    5 --> Print Address Book"
 							+ "\n\t\t    Any other number to go to previous menu\n");
 			System.out.print("\n\t\t    ENTER YOUR CHOICE :");
-			int choice=Integer.parseInt(takeInput.next());
+			int choice=Integer.parseInt(takeInput.nextLine());
 			switch(choice)
 			{
 				case 1:
@@ -173,7 +168,7 @@ class AddressBook implements IAddressBook
 						System.out.print("\n\t\t    1 --> Sort by ZipCode\n"
 										+"\n\t\t    2 --> Sort by Last Name\n");
 						System.out.print("\n\t\t    ENTER YOUR CHOICE :");
-						int sortChoice=Integer.parseInt(takeInput.next());
+						int sortChoice=Integer.parseInt(takeInput.nextLine());
 						switch(sortChoice)
 						{
 							case 1:

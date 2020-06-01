@@ -1,7 +1,5 @@
 package com.addressbook;
-
 import java.util.Scanner;
-
 class Address
 {
 	private String address;
@@ -19,17 +17,13 @@ class Address
 	public Address()
 	{
 		System.out.print("\n\t\t    Enter H.No. and Area :");
-		String address=takeInput.nextLine();
-		this.setAddress(address);
+		this.setAddress(takeInput.nextLine());
 		System.out.print("\n\t\t    Enter City :");
-		String city=takeInput.nextLine();
-		this.setCity(city);
+		this.setCity(takeInput.nextLine());
 		System.out.print("\n\t\t    Enter State :");
-		String state=takeInput.nextLine();
-		this.setState(state);
+		this.setState(takeInput.nextLine());
 		System.out.print("\n\t\t    Enter Zipcode : ");
-		int zipcode=Integer.parseInt(takeInput.next());
-		this.setZipcode(zipcode);
+		this.setZipcode(Integer.parseInt(takeInput.nextLine()));
 	}
 	public void setAddress(String address)
 	{
